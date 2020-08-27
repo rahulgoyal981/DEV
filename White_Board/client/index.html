@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="tool-panel">
+        <div class="hamburger-icon"></div>
+        <div class="tool-bar">
+            <div class="tool">
+                <img src="./NewIcons/Black_Pencil.svg" alt="" id="pencil" class="tool-img">
+                <div class="tool-options" id="pencil-options">
+                    <div class="slider"><input type="range" value="5" max="50" min="1"></div>
+                    <div class="colors">
+                        <div class="color red" onclick="handleColor('red')"></div>
+                        <div class="color green" onclick="handleColor('green')"></div>
+                        <div class="color blue" onclick="handleColor('blue')"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="tool">
+                <img src="./NewIcons/Eraser.svg" alt="" id="eraser" class="tool-img">
+                <div class="tool-options" id="eraser-options">
+                    <div class="slider"><input type="range" value="5" max="50" min="1"></div>
+                </div>
+            </div>
+            <div class="tool">
+                <img src="./NewIcons/Undo.svg" alt="" id="undo" class="tool-img">
+            </div>
+            <div class="tool">
+                <img src="./NewIcons/Redo.svg" alt="" id="redo" class="tool-img">
+            </div>
+            <div class="tool">
+                <img src="./NewIcons/StickyNote.svg" alt="" id="sticky" class="tool-img">
+            </div>
+            <div class="tool">
+                <label for="upload">
+                    <img src="./NewIcons/Photo.svg" alt="" class="tool-img">
+                    <input type="file" accept="image/*" id="upload" class="tool-img" style="display: none;">
+                </label>
+            </div>
+            <div class="tool">
+                <img src="./NewIcons/Download.svg" alt="" id="download" class="tool-img">
+            </div>
+        </div>
+    </div>
+    <div class="drawing-area">
+        <canvas class="board"></canvas>
+    </div>
+    <script>
+        let board = document.querySelector(".board");
+        // board.height = window.innerHeight;
+        // board.width = window.innerWidth;
+        board.height = window.innerHeight;
+        board.width = window.innerWidth;
+        window.addEventListener("resize", function () {
+            board.height = window.innerHeight;
+            board.width = window.innerWidth;
+            redraw();
+        })
+        let ctx = board.getContext("2d");
+
+
+        // ctx.fillRect(50,50,50,50);
+        // ctx.beginPath(0, 0);
+        // ctx.beginPath(0,0);
+        // ctx.moveTo(20,20);
+        // ctx.lineTo(20,100);
+        // ctx.lineTo(60,100);
+        // ctx.stroke();
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.4/socket.io.js"></script>
+    <script src="./utility/util.js"></script>
+    <script src="tools.js"></script>
+    <script src="script.js"></script>
+    <script src="sticky.js"></script>
+    <script src="img.js"></script>
+    <script src="reciever.js"></script>
+</body>
+
+</html>
