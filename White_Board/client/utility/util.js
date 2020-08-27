@@ -62,3 +62,4 @@ function createBox(){
     })
     return container;
 }
+// img common part
